@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StandardController!{% endblock %}
+
+{% block stylesheets %}
+    {# Llama a todo o que esta dentro del bloque 'stylesheets' del 'base.html.twig' #}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/my_project/src/Controller/StandardController.php'|file_link(0) }}">src/Controller/StandardController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/my_project/templates/standard/index.html.twig'|file_link(0) }}">templates/standard/index.html.twig</a></code></li>
+    </ul>
+</div> #}
+
+{# Creando e imprimiento variables #}
+{% set miVariable = 'La suma es: ' %}
+{{ miVariable }} 
+
+<br>
+
+{{ miSuma }} 
+
+<br>
+
+{# CONDICIONAL #}
+
+{% if num1 > num2 %}
+    Numero 1 es mayor
+{% elseif num2 > num1 %}
+    Numero 2 es mayor
+{% else %}
+    Iguales
+{% endif %}
+
+{# FILTROS #}
+
+<br>
+
+{{ vocales | lower }}
+
+<br>
+
+{{ vocales | upper }}
+
+<br>
+
+{# BUCLES #}
+
+{% set arrayVocales =  vocales | split(',') %}
+
+{% for vocal in arrayVocales %}
+
+    {{ vocal }}
+    
+{% endfor %}
+
+<br>
+
+{# Navegar a otra ruta #}
+<a href="{{ path('pagina2', { 'nombre': 'Christopher Gudiel' } ) }}"> Ir a pagina 2 </a>
+
+<br>
+
+<button type="button" class="btn btn-primary">Primary Bootstrap</button>
+
+<hr>
+<h1>Formulario:</h1>
+
+{{ form_start(form) }}
+{{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
